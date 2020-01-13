@@ -1,0 +1,19 @@
+{
+    "name": "mfajfr/tarsago-export",
+    "description": "Put data into csv files and export them to SFTP",
+    "type": "library",
+    "require": {
+        "phpseclib/phpseclib": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "TarsagoExport\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ing. Marek Fajfr",
+            "email": "mfajfr90@gmail.com"
+        }
+    ]
+}

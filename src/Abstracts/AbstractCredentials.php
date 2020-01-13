@@ -6,6 +6,6 @@
 
 namespace TarsagoExport\Abstracts;
 
-class AbstractCredentials
+abstract class AbstractCredentials
 {
 }

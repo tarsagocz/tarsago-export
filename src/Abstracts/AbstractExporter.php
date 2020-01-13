@@ -48,4 +48,9 @@ abstract class AbstractExporter implements IExporter
     {
         sleep($try * $this->waitingTime);
     }
+
+    public function backup()
+    {
+        // TODO: Implement backup() method.
+    }
 }

@@ -143,7 +143,7 @@ class Row implements IRow
             . '"' . $delimiter . '"' . $this->multiorder . '"' . $delimiter . '"' . $this->new_name . '"' . $delimiter . '"' . $this->new_addr1 . '"' . $delimiter . '"' . $this->new_city . '"' . $delimiter . '"' . $this->new_zip_cd
             . '"' . $delimiter . '"' . $this->new_phone . '"' . $delimiter . '"' . $this->new_mobile . '"' . $delimiter . '"' . $this->new_email . '"' . $delimiter . '"' . $this->new_datnar . '"' . $delimiter . '"' . $this->address_change
             . '"' . $delimiter . '"' . $this->consent_tlm . '"' . $delimiter . '"' . $this->consent_tarsago . '"' . $delimiter . '"' . $this->consent_general . '"' . $delimiter . '"' . $this->add_remark . '"' . $delimiter . '"' . $this->status
-            . '"' . $delimiter . '"' . $this->status_date . '"' . $delimiter . '"' . $this->operator . '"' . $delimiter . '"' . $this->comment . '"' . $delimiter . '"' . $this->lottery_entry . '"' . PHP_EOL;
+            . '"' . $delimiter . '"' . $this->status_date . '"' . $delimiter . '"' . $this->operator . '"' . $delimiter . '"' . $this->comment . '"' . $delimiter . '"' . $this->lottery_entry . '"';
         return $row;
     }
 }

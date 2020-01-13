@@ -42,4 +42,9 @@ class AbstractTransaction implements ITransaction
         }
         return $string;
     }
+
+    public function count()
+    {
+        return sizeof($this->rows);
+    }
 }

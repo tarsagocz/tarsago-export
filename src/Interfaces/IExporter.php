@@ -7,10 +7,10 @@ interface IExporter
     /**
      * @param string $name
      * @param ITransaction $transaction
-     * @param int $try
+     * @param int $attempt
      * @return mixed
      */
-    public function upload(string $name, ITransaction $transaction, int $try = 1);
+    public function upload(string $name, ITransaction $transaction, int $attempt = 1);
 
     /**
      * @return mixed

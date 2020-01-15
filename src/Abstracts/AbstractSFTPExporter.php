@@ -14,23 +14,24 @@ abstract class AbstractSFTPExporter extends AbstractExporter
     /**
      * @var null|SFTP
      */
-    protected $sftp = null;
+    protected ?SFTP $sftp = null;
 
     /**
      * @inheritDoc
      */
-    public function upload(string $name, ITransaction $transaction, int $try = 1)
+    public function upload(string $name, ITransaction $transaction, int $attempt = 1)
     {
         try {
             $this->connect();
+//            $exists = $this->sftp->file_exists($name);
             $this->sftp->put($name, $transaction->toString());
         } catch (\Exception $exception) {
-            if ($try == $this->tries) {
+            if ($attempt == $this->tries) {
                 $this->backup();
             } else {
-                $this->rest($try);
-                $try++;
-                $this->upload($name, $transaction, $try);
+                $this->rest($attempt);
+                $attempt++;
+                $this->upload($name, $transaction, $attempt);
             }
         }
     }

@@ -11,42 +11,43 @@ use TarsagoExport\Interfaces\IExporter;
 abstract class AbstractExporter implements IExporter
 {
     const WAITING_TIME = 120;
-    const TRIES = 5;
+    const ATTEMPTS = 5;
 
     /**
      * @var string
      */
-    protected $ip;
+    protected string $ip;
     /**
      * @var AbstractCredentials
      */
-    protected $credentials;
+    protected AbstractCredentials $credentials;
     /**
      * @var int
      */
-    protected $waitingTime;
+    protected ?int $waitingTime;
     /**
      * @var int
      */
-    protected $tries;
+    protected ?int $attempts;
 
     /**
      * AbstractExporter constructor.
      * @param string $ip
      * @param AbstractCredentials $credentials
      * @param null|int $waitingTime
+     * @param int|null $attempts
      */
-    public function __construct(string $ip, AbstractCredentials $credentials, int $waitingTime = null, int $tries = null)
+    public function __construct(string $ip, AbstractCredentials $credentials, int $waitingTime = null, int $attempts = null)
     {
         $this->ip = $ip;
         $this->credentials = $credentials;
         $this->waitingTime = $waitingTime ?? self::WAITING_TIME;
-        $this->tries = $tries ?? self::TRIES;
+        $this->attempts = $attempts ?? self::ATTEMPTS;
     }
 
-    protected function rest(int $try) : void
+    protected function rest(int $attempt) : void
     {
-        sleep($try * $this->waitingTime);
+        sleep($attempt * $this->waitingTime);
     }
 
     public function backup()

@@ -14,11 +14,11 @@ class AbstractTransaction implements ITransaction
     /**
      * @var IRow[]
      */
-    protected $rows = [];
+    protected array $rows = [];
     /**
      * @var string
      */
-    protected $delimiter = ';';
+    protected string $delimiter = ';';
 
     /**
      * AbstractTransaction constructor.

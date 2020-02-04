@@ -18,4 +18,16 @@ interface IExporter
     public function connect();
 
     public function backup();
+
+    /**
+     * @param string $name
+     * @return bool
+     */
+    public function hasDirectory(string $name) : bool;
+
+    /**
+     * @param string $name
+     * @return bool
+     */
+    public function makeDirectory(string $name) : bool;
 }

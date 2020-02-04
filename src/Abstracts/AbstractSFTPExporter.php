@@ -35,4 +35,22 @@ abstract class AbstractSFTPExporter extends AbstractExporter
             }
         }
     }
+
+    /**
+     * @param string $name
+     * @return bool
+     */
+    public function hasDirectory(string $name) : bool {
+        $this->connect();
+        return $this->sftp->is_dir($name);
+    }
+
+    /**
+     * @param string $name
+     * @return bool
+     */
+    public function makeDirectory(string $name) : bool {
+        $this->connect();
+        return $this->sftp->mkdir($name);
+    }
 }

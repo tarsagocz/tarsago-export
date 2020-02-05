@@ -6,9 +6,14 @@
 
 namespace TarsagoExport\Models\Telemarketing;
 
+use Faker\Factory;
+use Faker\Generator;
+use Faker\Provider\cs_CZ\Address;
+use Faker\Provider\cs_CZ\PhoneNumber;
+use TarsagoExport\Abstracts\AbstractRow;
 use TarsagoExport\Interfaces\IRow;
 
-class Row implements IRow
+class Row extends AbstractRow
 {
     protected $iss_acct;
     protected $iss_key_co;
@@ -145,5 +150,51 @@ class Row implements IRow
             . '"' . $delimiter . '"' . $this->consent_tlm . '"' . $delimiter . '"' . $this->consent_tarsago . '"' . $delimiter . '"' . $this->consent_general . '"' . $delimiter . '"' . $this->add_remark . '"' . $delimiter . '"' . $this->status
             . '"' . $delimiter . '"' . $this->status_date . '"' . $delimiter . '"' . $this->operator . '"' . $delimiter . '"' . $this->comment . '"' . $delimiter . '"' . $this->lottery_entry . '"';
         return $row;
+    }
+
+    public static function createExample($params = [])
+    {
+        $faker = Factory::create('cs_CZ');
+        return new self(
+            array_key_exists('iss_acct', $params) ? $params['iss_acct'] : $faker->numberBetween(100000, 999999),
+            array_key_exists('iss_key_co', $params) ? $params['iss_key_co'] : $faker->numberBetween(100000, 999999),
+            array_key_exists('iss_name', $params) ? $params['iss_name'] : $faker->name,
+            array_key_exists('iss_compan', $params) ? $params['iss_compan'] : $faker->company,
+            array_key_exists('iss_addr1', $params) ? $params['iss_addr1'] : $faker->streetAddress,
+            array_key_exists('iss_city', $params) ? $params['iss_city'] : $faker->city,
+            array_key_exists('iss_zip_cd', $params) ? $params['iss_zip_cd'] : $faker->numberBetween(10000, 99999),
+            array_key_exists('iss_phone', $params) ? $params['iss_phone'] : $faker->e164PhoneNumber,
+            array_key_exists('iss_acct', $params) ? $params['iss_acct'] : $faker->e164PhoneNumber,
+            array_key_exists('datnar', $params) ? $params['datnar'] : $faker->date,
+            array_key_exists('email', $params) ? $params['email'] : $faker->email,
+            array_key_exists('barcode', $params) ? $params['barcode'] : $faker->ean8,
+            array_key_exists('campaign', $params) ? $params['campaign'] : $faker->numberBetween(100000, 999999),
+            array_key_exists('mrktcode', $params) ? $params['mrktcode'] : $faker->numberBetween(100000, 999999),
+            array_key_exists('prodcode1', $params) ? $params['prodcode1'] : $faker->numberBetween(100000, 999999),
+            array_key_exists('prodcode2', $params) ? $params['prodcode2'] : $faker->numberBetween(100000, 999999),
+            array_key_exists('prodcode3', $params) ? $params['prodcode3'] : $faker->numberBetween(100000, 999999),
+            array_key_exists('prodcode4', $params) ? $params['prodcode4'] : $faker->numberBetween(100000, 999999),
+            array_key_exists('iss_name', $params) ? $params['iss_name'] : $faker->boolean,
+            array_key_exists('iss_name', $params) ? $params['iss_name'] : $faker->boolean,
+            array_key_exists('iss_name', $params) ? $params['iss_name'] : $faker->boolean,
+            array_key_exists('new_name', $params) ? $params['new_name'] : $faker->name,
+            array_key_exists('new_addr1', $params) ? $params['new_addr1'] : $faker->streetAddress,
+            array_key_exists('new_city', $params) ? $params['new_city'] : $faker->city,
+            array_key_exists('new_zip_cd', $params) ? $params['new_zip_cd'] : $faker->numberBetween(10000, 99999),
+            array_key_exists('new_phone', $params) ? $params['new_phone'] : $faker->e164PhoneNumber,
+            array_key_exists('new_mobile', $params) ? $params['new_mobile'] : $faker->e164PhoneNumber,
+            array_key_exists('new_email', $params) ? $params['new_email'] : $faker->email,
+            array_key_exists('new_datnar', $params) ? $params['new_datnar'] : $faker->date,
+            array_key_exists('address_change', $params) ? $params['address_change'] : $faker->boolean,
+            array_key_exists('consent_tlm', $params) ? $params['consent_tlm'] : $faker->boolean,
+            array_key_exists('consent_tarsago', $params) ? $params['consent_tarsago'] : $faker->boolean,
+            array_key_exists('consent_general', $params) ? $params['consent_general'] : $faker->boolean,
+            array_key_exists('add_remark', $params) ? $params['add_remark'] : $faker->boolean,
+            array_key_exists('status', $params) ? $params['status'] : $faker->boolean,
+            array_key_exists('status_date', $params) ? $params['status_date'] : $faker->date,
+            array_key_exists('iss_name', $params) ? $params['iss_name'] : $faker->name,
+            array_key_exists('comment', $params) ? $params['comment'] : $faker->sentence,
+            array_key_exists('lottery_entry', $params) ? $params['lottery_entry'] : $faker->boolean
+        );
     }
 }

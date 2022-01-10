@@ -16,19 +16,19 @@ abstract class AbstractExporter implements IExporter
     /**
      * @var string
      */
-    protected string $ip;
+    protected $ip;
     /**
      * @var AbstractCredentials
      */
-    protected AbstractCredentials $credentials;
+    protected $credentials;
     /**
      * @var int
      */
-    protected ?int $waitingTime;
+    protected $waitingTime;
     /**
      * @var int
      */
-    protected ?int $attempts;
+    protected $attempts;
 
     /**
      * AbstractExporter constructor.

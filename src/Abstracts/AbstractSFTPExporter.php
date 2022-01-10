@@ -11,10 +11,7 @@ use TarsagoExport\Interfaces\ITransaction;
 
 abstract class AbstractSFTPExporter extends AbstractExporter
 {
-    /**
-     * @var null|SFTP
-     */
-    protected ?SFTP $sftp = null;
+    protected $sftp = null;
 
     /**
      * @inheritDoc

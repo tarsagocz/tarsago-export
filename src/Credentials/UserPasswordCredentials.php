@@ -13,11 +13,11 @@ class UserPasswordCredentials extends AbstractCredentials
     /**
      * @var string
      */
-    protected string $user;
+    protected $user;
     /**
      * @var string
      */
-    protected string $password;
+    protected $password;
 
     /**
      * UserPasswordCredentials constructor.

@@ -13,7 +13,7 @@ class RSACredentials extends UserPasswordCredentials
     /**
      * @var string
      */
-    protected string $privateKey;
+    protected $privateKey;
 
     /**
      * RSACredentials constructor.
